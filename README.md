@@ -28,6 +28,8 @@ import matplotlib.pyplot as plt
 
 # Apply the custom style
 plt.style.use("https://raw.githubusercontent.com/HatefDastour/matplotlib_custom_style/main/custom_style.mplstyle")
+# or
+plt.style.use("https://tinyurl.com/mplstyle")
 
 # Create your plot
 plt.plot([1, 2, 3], [1, 4, 9])
