@@ -1,0 +1,61 @@
+# scientific.mplstyle
+# A professional academic style for scientific publications
+
+# --- Lines and Markers ---
+lines.linewidth: 1.5
+lines.markersize: 6
+lines.antialiased: True
+
+# --- Font and Text ---
+# Note: Arial/Helvetica are standard for journals like Nature/Science
+font.family: sans-serif
+font.sans-serif: Arial, Helvetica, DejaVu Sans, Liberation Sans, sans-serif
+text.usetex: False  # Set to True if you have a LaTeX distribution installed
+
+# --- Axes ---
+axes.labelsize: 12
+axes.titlesize: 14
+axes.titleweight: bold
+axes.linewidth: 0.8
+axes.labelpad: 6.0
+axes.spines.top: False    # Remove top spine for a cleaner look
+axes.spines.right: False  # Remove right spine for a cleaner look
+
+# --- Ticks ---
+xtick.major.size: 4
+xtick.minor.size: 2
+xtick.major.width: 0.8
+xtick.labelsize: 10
+xtick.direction: out     # Ticks point out to avoid overlapping data
+
+ytick.major.size: 4
+ytick.minor.size: 2
+ytick.major.width: 0.8
+ytick.labelsize: 10
+ytick.direction: out
+
+# --- Legend ---
+legend.fontsize: 10      # Slightly smaller than labels to save space
+legend.title_fontsize: 10
+legend.frameon: True
+legend.framealpha: 0.8
+legend.edgecolor: 0.8    # Subtle gray border
+legend.fancybox: False   # Sharp corners for a formal look
+
+# --- Grid ---
+axes.grid: True
+axes.grid.which: major
+grid.color: gray
+grid.alpha: 0.3          # Light grid lines to stay in the background
+grid.linestyle: --
+
+# --- Colors (Color-blind safe / Wong Palette) ---
+# Blue, Green, Vermillion, Purple, Yellow, Sky Blue
+axes.prop_cycle: cycler('color', ['0072B2', '009E73', 'D55E00', 'CC79A7', 'F0E442', '56B4E9'])
+
+# --- Figure and Savings ---
+figure.figsize: 9.5, 4.5
+figure.dpi: 100          # Screen DPI
+savefig.dpi: 220         # Publication DPI
+savefig.format: pdf      # Vector format is best for papers
+savefig.bbox: tight      # Prevents labels from being cut off
