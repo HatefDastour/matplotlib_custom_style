@@ -190,10 +190,3 @@ University of Missouri, Columbia
 - 🌐 **Website:** [hatefdastour.github.io](https://hatefdastour.github.io/)
 - 🐙 **GitHub:** [@HatefDastour](https://github.com/HatefDastour)
 
----
-
-<div align="center">
-
-Made with ❤️ for better data visualization
-
-</div>
