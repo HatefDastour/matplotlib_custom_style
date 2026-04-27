@@ -41,6 +41,31 @@ A professional academic style optimized for scientific publications (e.g., Natur
 | **Save DPI** | 220 (PDF vector format) |
 | **Font Family** | Arial, Helvetica, DejaVu Sans, Liberation Sans |
 
+### 3. `mizzou.mplstyle` + `mizzou_colormaps.py`
+
+A style and colormap collection based on the [University of Missouri (Mizzou) Data Visualization Brand Guidelines](https://udair.missouri.edu/data-visualization-style-guidelines/). Uses the official MU color palette with a focus on color-blind accessibility.
+
+| Element | Value |
+|---------|-------|
+| **Line Width** | 1.5 |
+| **Marker Size** | 6 |
+| **Axis Label Size** | 12 pt |
+| **Tick Label Size** | 10 pt |
+| **Title Size** | 14 pt (bold) |
+| **Grid Style** | Gray, dashed, alpha 0.3 |
+| **Spines** | Top & right removed |
+| **Color Palette** | MU categorical (5-color, color-blind safe) |
+| **Save DPI** | 220 (PDF vector format) |
+| **Font Family** | Arial, Helvetica, DejaVu Sans, Liberation Sans |
+
+The companion `mizzou_colormaps.py` module provides three Matplotlib colormap objects:
+
+| Colormap | Type | Colors | Best For |
+|----------|------|--------|----------|
+| `MizzouCategorical` | `ListedColormap` | Gold → Black → Botanic Tint → Slate → Sunrise Shade | Distinct, unordered groups |
+| `MizzouSequential` | `LinearSegmentedColormap` | Limestone → Gold → Deep Gold | Low-to-high numeric data |
+| `MizzouDiverging` | `LinearSegmentedColormap` | Botanic Shade ↔ Limestone ↔ Sunrise Shade | Data diverging around a midpoint |
+
 ---
 
 ## 🚀 Quick Start
@@ -60,6 +85,10 @@ plt.style.use("https://raw.githubusercontent.com/HatefDastour/matplotlib_custom_
 # or via short URL
 plt.style.use("https://tinyurl.com/sci-mplstyle")
 
+# ── Mizzou (University of Missouri) style ──
+plt.style.use("https://raw.githubusercontent.com/HatefDastour/matplotlib_custom_style/main/mizzou.mplstyle")
+plt.style.use("https://tinyurl.com/mizzou-mplstyle")
+
 # Create your plot
 plt.plot([1, 2, 3], [1, 4, 9])
 plt.xlabel('X-axis')
@@ -74,6 +103,8 @@ plt.show()
 # Download the style file(s)
 wget https://raw.githubusercontent.com/HatefDastour/matplotlib_custom_style/main/custom_style.mplstyle
 wget https://raw.githubusercontent.com/HatefDastour/matplotlib_custom_style/main/scientific.mplstyle
+wget https://raw.githubusercontent.com/HatefDastour/matplotlib_custom_style/main/mizzou.mplstyle
+wget https://raw.githubusercontent.com/HatefDastour/matplotlib_custom_style/main/mizzou_colormaps.py
 ```
 
 ```python
@@ -83,6 +114,8 @@ import matplotlib.pyplot as plt
 plt.style.use("path/to/custom_style.mplstyle")
 # or
 plt.style.use("path/to/scientific.mplstyle")
+# or
+plt.style.use("path/to/mizzou.mplstyle")
 ```
 
 ### Method 3: Install in Matplotlib Config
@@ -103,6 +136,39 @@ import matplotlib.pyplot as plt
 plt.style.use('custom_style')
 # or
 plt.style.use('scientific')
+# or
+plt.style.use('mizzou')
+```
+
+### Mizzou Colormaps
+
+Copy `mizzou_colormaps.py` alongside your script and use it as follows:
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+from mizzou_colormaps import register_mizzou_colormaps, mu_categorical
+
+# Register colormaps so they are available by name in any cmap= argument
+register_mizzou_colormaps()
+
+# Sequential heatmap
+data = np.random.rand(10, 10)
+plt.imshow(data, cmap="MizzouSequential")
+plt.colorbar()
+plt.title("Sequential (Limestone → Gold)")
+plt.show()
+
+# Diverging heatmap
+plt.imshow(data - 0.5, cmap="MizzouDiverging")
+plt.colorbar()
+plt.title("Diverging (Botanic Shade ↔ Sunrise Shade)")
+plt.show()
+
+# Categorical bar chart
+plt.bar(["A", "B", "C", "D", "E"], [10, 24, 15, 18, 5], color=mu_categorical.colors)
+plt.title("Categorical (5-color safe palette)")
+plt.show()
 ```
 
 ---
@@ -156,8 +222,11 @@ This ensures consistent appearance across Windows, macOS, and Linux platforms.
 matplotlib_custom_style/
 ├── custom_style.mplstyle   # General-purpose style
 ├── scientific.mplstyle     # Academic / publication style
+├── mizzou.mplstyle         # Mizzou (MU) brand style
+├── mizzou_colormaps.py     # Mizzou categorical / sequential / diverging colormaps
 ├── examples/               # Example scripts
-│   └── example_plot.py     # Demonstration script
+│   ├── example_plot.py     # Demonstration script (custom_style)
+│   └── mizzou_example.py   # Demonstration script (Mizzou style & colormaps)
 ├── LICENSE                 # MIT License
 └── README.md               # This file
 ```

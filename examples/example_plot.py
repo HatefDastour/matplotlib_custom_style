@@ -1,3 +1,5 @@
+import os
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -11,4 +13,9 @@ plt.title("Example Plot with Custom Style")
 plt.xlabel("X Axis")
 plt.ylabel("Y Axis")
 plt.legend(title="Legend")
+
+plt.savefig(
+    os.path.join(os.path.dirname(__file__), "basic_example.pdf"),
+    bbox_inches="tight",
+)
 plt.show()

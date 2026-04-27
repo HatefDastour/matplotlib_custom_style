@@ -1,0 +1,65 @@
+# mizzou.mplstyle
+# A Matplotlib style based on the University of Missouri (Mizzou) Data
+# Visualization Brand Guidelines: https://udair.missouri.edu/data-visualization-style-guidelines/
+
+# --- Lines and Markers ---
+lines.linewidth: 1.5
+lines.markersize: 6
+lines.antialiased: True
+
+# --- Font and Text ---
+font.family: sans-serif
+font.sans-serif: Arial, Helvetica, DejaVu Sans, Liberation Sans, sans-serif
+text.usetex: False
+
+# --- Axes ---
+axes.labelsize: 12
+axes.titlesize: 14
+axes.titleweight: bold
+axes.linewidth: 0.8
+axes.labelpad: 6.0
+axes.spines.top: False
+axes.spines.right: False
+
+# --- Ticks ---
+xtick.major.size: 4
+xtick.minor.size: 2
+xtick.major.width: 0.8
+xtick.labelsize: 10
+xtick.direction: out
+
+ytick.major.size: 4
+ytick.minor.size: 2
+ytick.major.width: 0.8
+ytick.labelsize: 10
+ytick.direction: out
+
+# --- Legend ---
+legend.fontsize: 10
+legend.title_fontsize: 10
+legend.frameon: True
+legend.framealpha: 0.8
+legend.edgecolor: 0.8
+legend.fancybox: False
+
+# --- Grid ---
+axes.grid: True
+axes.grid.which: major
+grid.color: gray
+grid.alpha: 0.3
+grid.linestyle: --
+
+# --- Colors (MU Categorical Palette — color-blind accessible) ---
+# Order: Mizzou Gold, Tiger Paw Black, Botanic Tint, Slate, Sunrise Shade
+# First four are verified safe together under protanopia/deuteranopia/tritanopia simulation.
+# Ref: MU Color Compatibility Matrix
+# Note: hex values are written without '#' because '#' is a comment character in mplstyle files;
+#       Matplotlib prepends '#' automatically when reading the cycler.
+axes.prop_cycle: cycler('color', ['FDB719', '000000', '99CECF', '4A596E', '993429'])
+
+# --- Figure and Saving ---
+figure.figsize: 9.5, 4.5
+figure.dpi: 100
+savefig.dpi: 220
+savefig.format: pdf
+savefig.bbox: tight
